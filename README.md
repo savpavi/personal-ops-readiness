@@ -1,8 +1,13 @@
-# Personal Operations Readiness v0.2
+# Personal Operations Readiness
 
-`personal_ops_readiness.py` is a deterministic, read-only status checker for
-this workstation. It prints a concise Markdown report by default and can emit
-machine-readable JSON.
+A deterministic, read-only health checker for my home workstation: disk
+capacity, SMART health, backup evidence, systemd timers and Git worktrees in one
+report. It prints concise Markdown by default and can emit machine-readable JSON.
+Single file, Python standard library only.
+
+The monitored paths, services and repositories are constants at the top of
+`personal_ops_readiness.py` and match my machine; change them before running it
+elsewhere.
 
 ## Checks
 
@@ -23,7 +28,6 @@ It does not run backups or SMART tests and does not remediate findings.
 ## Run
 
 ```bash
-cd /home/savpavi/Projects/personal-ops-readiness
 python3 personal_ops_readiness.py --markdown
 python3 personal_ops_readiness.py --json
 python3 -m unittest -v test_readiness.py
